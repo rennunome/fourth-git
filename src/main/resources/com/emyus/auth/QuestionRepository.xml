@@ -4,18 +4,9 @@
 <mapper namespace="com.emyus.auth.QuestionRepository">
 
 	<!--今回利用するステートメントの定義 -->
-	<select id="identifyQuestion" parameterType="java.lang.String"
-		resultMap="questionDetails">
+	<select id="findAll">
 		select
 		id, question
 		from questions
-		where id = #{id}
 	</select>
-
-	<!--UserクラスのプロパティとDBのデータをマップする -->
-	<resultMap type="com.emyus.que.Question" id="questionDetails">
-		<result property="id" column="id" />
-		<result property="question" column="question" />
-	</resultMap>
-
 </mapper>

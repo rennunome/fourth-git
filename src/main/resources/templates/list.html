@@ -18,11 +18,11 @@
 		<input type="submit" value="新規登録">
 		</form>
 	</div>
-	<div th:each = "question : ${questionlist}" th:object = "${question}">
-	<label for="question_id">問題：</label> <input type="text" name="question" class ="question" id="question" th:text ="${question}"> <br>
+	<div th:each = "question : ${questionlist}">
+	<label for="question_id">問題：</label> <input type="text" name="question" class ="question" id="question" th:text ="${question.question}"> <br>
 	</div>
-	<div th:each = "correctAnswer : ${calist}" th:object = "${correctAnswer}">
-	<label for="answer_id">答え：</label> <input type="text" name="answer" class ="answer" id="answer" th:text="${correctAnswer}">
+	<div th:each = "correctAnswer : ${calist}">
+	<label for="answer_id">答え：</label> <input type="text" name="answer" class ="answer" id="answer" th:text="${correctAnswer.answer}">
 	</div>
 </body>
 </html>
