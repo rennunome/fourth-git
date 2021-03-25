@@ -16,17 +16,13 @@
 	<div align="center">
 	<form th:action="@{/register}" method="POST">
 		<input type="submit" value="新規登録">
-		</form>
+	</form>
 	</div>
 	<div th:each = "question : ${questionlist}">
-<<<<<<< HEAD
-	<label for="question_id">問題：</label> <input type="text" name="question" class ="question" id="question" th:text ="${question.question}"> <br>
-=======
-	<label for="question_id">問題：</label> <input type="text" name="question" class ="question" id="question" th:text ="${question}"> <br>
->>>>>>> ba72696aea21a10b0fd61cc05ce9e76abc90afa6
+	<label for="question_id">問題：</label> <input type= "text" name= "Question" th:value ="${question.question}"> <br>
 	</div>
-	<div th:each = "correctAnswer : ${calist}">
-	<label for="answer_id">答え：</label> <input type="text" name="answer" class ="answer" id="answer" th:text="${correctAnswer.answer}">
+	<div th:each = "CorrectAnswer : ${calist}">
+	<label for="answer_id">答え：</label> <input type= "text" name= "CorrectAnswer" th:value="${CorrectAnswer.answer}">
 	</div>
 </body>
 </html>
