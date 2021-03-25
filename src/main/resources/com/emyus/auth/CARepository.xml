@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--次に作成するMapperInterfaceをFQCNで指定 -->
-<mapper namespace="com.emyus.auth.QuestionRepository">
+<mapper namespace="com.emyus.auth.CARepository">
 
 	<!--今回利用するステートメントの定義 -->
-	<select id="findAll" resultType="com.emyus.que.Question">
+	<select id="findAll" resultType="com.emyus.ca.CorrectAnswer">
 		select
-		id, question
-		from questions
+		id, questions_id, answer
+		from correct_answers
 	</select>
 </mapper>

@@ -2,11 +2,17 @@ package com.emyus.que;
 
 import java.sql.Timestamp;
 
-public class Question{
+public class Question {
 	private int id;
 	private String question;
 	private Timestamp created_at;
 	private Timestamp updated_at;
+
+	public Question(int id, String question) {
+		this.id = id;
+		this.question = question;
+
+	}
 
 	public int getId() {
 		return id;
