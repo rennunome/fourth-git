@@ -17,6 +17,12 @@ public class QuestionService {
 	private QuestionRepository questionRepository;
 
 	public List<Question> findAll() {
-	    return questionRepository.findAll();
-	  }
+		return questionRepository.findAll();
+	}
+
+	public void create(QuestionRequest questionRequest) {
+		Question question = new Question();
+		question.setQuestion(questionRequest.getQuestion());
+		questionRepository.create();
+	}
 }

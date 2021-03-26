@@ -9,4 +9,6 @@ import com.emyus.ca.CorrectAnswer;
 	@Mapper
 	public interface CARepository{
 	public List<CorrectAnswer> findAll();
+
+	public void create();
 }

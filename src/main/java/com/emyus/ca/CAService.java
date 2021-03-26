@@ -19,4 +19,11 @@ public class CAService {
 	public List<CorrectAnswer> findAll() {
 	    return caRepository.findAll();
 	  }
+
+	public void create(CARequest caRequest) {
+		CorrectAnswer ca = new CorrectAnswer();
+		ca.setAnswer(caRequest.getAnswer());
+		ca.setQuestionsId(caRequest.getQuestionsId());
+		caRepository.create();
+	}
 }

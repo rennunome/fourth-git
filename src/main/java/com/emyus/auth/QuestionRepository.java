@@ -10,4 +10,6 @@ import com.emyus.que.Question;
 @Mapper
 public interface QuestionRepository {
 	public List<Question> findAll();
+
+	void create();
 }

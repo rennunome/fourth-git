@@ -14,6 +14,10 @@ public class Question {
 
 	}
 
+	public Question() {
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
+
 	public int getId() {
 		return id;
 	}
