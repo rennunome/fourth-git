@@ -24,6 +24,6 @@ public class CAService {
 		CorrectAnswer ca = new CorrectAnswer();
 		ca.setAnswer(caRequest.getAnswer());
 		ca.setQuestionsId(caRequest.getQuestionsId());
-		caRepository.create();
+		caRepository.create(caRequest);
 	}
 }
