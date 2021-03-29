@@ -20,8 +20,6 @@ public class QuestionService {
 	}
 
 	public void create(QuestionRequest questionRequest) {
-		Question que = new Question();
-		que.setQuestion(questionRequest.getQuestion());
 		questionRepository.create(questionRequest);
 	}
 }
