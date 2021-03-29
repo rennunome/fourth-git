@@ -23,7 +23,7 @@ public class CAService {
 	public void create(CARequest caRequest) {
 		CorrectAnswer ca = new CorrectAnswer();
 		ca.setAnswer(caRequest.getAnswer());
-		ca.setQuestionsId(caRequest.getQuestions_id());
+		ca.setQuestionsId(caRequest.getQuestionsId());
 		caRepository.create(caRequest);
 	}
 

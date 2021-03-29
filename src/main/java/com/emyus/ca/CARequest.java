@@ -20,11 +20,16 @@ public class CARequest implements Serializable {
 		private int id;
 
 		CARequest(String answer, int questions_id, int id){
-			this.answer = "熊本県";
-			this.questions_id = 1;
-			this.id = 1;
+			this.answer = answer;
+			this.questions_id = questions_id;
+			this.id = id;
 		}
 
 		CARequest(){
+		}
+
+		public int getQuestionsId() {
+			// TODO 自動生成されたメソッド・スタブ
+			return questions_id;
 		}
 	}
