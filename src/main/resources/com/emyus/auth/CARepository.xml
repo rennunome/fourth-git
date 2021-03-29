@@ -11,7 +11,6 @@
 	</select>
 
 	<insert id="create">
-		insert into correct_answers (question_id, answer)
-		values ((select id from questions order by created_at desc limit 1), #{answer});
+		insert into correct_answers (questions_id, answer) values ((select id from questions order by created_at desc limit 1), #{answer});
 	</insert>
 </mapper>

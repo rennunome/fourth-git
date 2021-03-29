@@ -14,15 +14,23 @@
 	</form>
 	</div>
 	<div align="center">
+	<h1>問題・答えの一覧</h1>
 	<form th:action="@{/qaregister}" method="POST">
 		<input type="submit" value="新規登録">
 	</form>
 	</div>
 	<div th:each = "question : ${questionlist}">
-	<label for="question_id">問題：</label> <input type= "text" name= "Question" th:value ="${question.question}"> <br>
+	<label for="question_id">問題：</label> <input type= "text" name= "Question" th:value ="${question.question}">
+	<br>
 	</div>
 	<div th:each = "CorrectAnswer : ${calist}">
 	<label for="answer_id">答え：</label> <input type= "text" name= "CorrectAnswer" th:value="${CorrectAnswer.answer}">
+	<form th:action="@{/qaedit}" method="POST">
+		<input type="submit" value="編集">
+	</form>
+	<form th:action="@{/qadelete}" method="POST">
+		<input type="submit" value="削除">
+	</form>
 	</div>
 </body>
 </html>

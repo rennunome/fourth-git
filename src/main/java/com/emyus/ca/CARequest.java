@@ -14,8 +14,8 @@ public class CARequest implements Serializable {
 		@Size(max = 200, message= "答えは200文字以内で入力してください。")
 		private String answer;
 
-		public int getQuestionsId() {
-			// TODO 自動生成されたメソッド・スタブ
-			return 0;
-		}
+		@NotEmpty
+		private int questions_id;
+
+		private int answers_id;
 	}
