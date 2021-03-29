@@ -13,4 +13,12 @@
 	<insert id="create">
 		insert into correct_answers (questions_id, answer) values ((select id from questions order by created_at desc limit 1), #{answer});
 	</insert>
+
+	<select id= "findById" resultType="com.emyus.ca.CorrectAnswer">
+	select id, questions_id, answer from correct_answers where id = #{id}
+	</select>
+
+	<update id="update">
+		update correct_answers set answer = #{answer} where id = #{id}
+	</update>
 </mapper>

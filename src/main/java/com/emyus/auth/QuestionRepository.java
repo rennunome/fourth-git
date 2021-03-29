@@ -13,4 +13,9 @@ public interface QuestionRepository {
 	public List<Question> findAll();
 
 	void create(QuestionRequest questionRequest);
+
+	public Question update(QuestionRequest questionRequest);
+
+	public Question findById(QuestionRequest questionRequest);
+
 }

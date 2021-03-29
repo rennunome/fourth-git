@@ -22,4 +22,12 @@ public class QuestionService {
 	public void create(QuestionRequest questionRequest) {
 		questionRepository.create(questionRequest);
 	}
+
+	public Question update(QuestionRequest questionRequest) {
+		return questionRepository.update(questionRequest);
+	}
+
+	public Question findById(QuestionRequest questionRequest) {
+		return questionRepository.findById(questionRequest);
+	}
 }

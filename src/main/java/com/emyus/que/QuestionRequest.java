@@ -14,5 +14,14 @@ public class QuestionRequest implements Serializable {
 	@Size(max = 500, message= "質問は500文字以内で入力してください。")
 	private String question;
 
-	private int questions_id;
+	private int id;
+
+	QuestionRequest(String question, int id){
+		this.question = "くまもんの出身は？";
+		this.id = 1;
+	}
+
+	QuestionRequest(){
+
+	}
 }
