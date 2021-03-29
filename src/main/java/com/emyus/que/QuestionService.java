@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.emyus.auth.QuestionRepository;
-
 @Service
 @Transactional(rollbackOn = Exception.class)
 public class QuestionService {
@@ -17,6 +16,12 @@ public class QuestionService {
 	private QuestionRepository questionRepository;
 
 	public List<Question> findAll() {
-	    return questionRepository.findAll();
-	  }
+		return questionRepository.findAll();
+	}
+
+	public void create(QuestionRequest questionRequest) {
+		Question que = new Question();
+		que.setQuestion(questionRequest.getQuestion());
+		questionRepository.create(questionRequest);
+	}
 }

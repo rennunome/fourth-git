@@ -9,4 +9,8 @@
 		id, question
 		from questions
 	</select>
+
+	<insert id="create" parameterType= "String">
+		insert into questions (question, created_at, updated_at) values (#{question}, current_timestamp(), current_timestamp());
+	</insert>
 </mapper>
