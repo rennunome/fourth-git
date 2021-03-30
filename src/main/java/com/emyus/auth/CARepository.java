@@ -16,4 +16,6 @@ import com.emyus.ca.CorrectAnswer;
 	void update(CARequest caRequest);
 
 	public CorrectAnswer findById(CARequest caRequest);
-}
+
+	void delete(CARequest caRequest);
+	}

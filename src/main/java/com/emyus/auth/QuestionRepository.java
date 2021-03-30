@@ -18,4 +18,5 @@ public interface QuestionRepository {
 
 	public Question findById(QuestionRequest questionRequest);
 
+	void delete(QuestionRequest questionRequest);
 }

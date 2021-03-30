@@ -35,8 +35,12 @@
 					name="id" th:value="${CorrectAnswer.getId()}">
 			</form>
 		</th:block>
-		<form th:action="@{/qadelete}" method="POST">
+		<form th:action="@{/qadeleteconfirm}" method="POST" th:object="${CorrectAnswer}">
 			<input type="submit" value="削除">
+			 <input type="hidden"
+					name="questions_id" th:value="${CorrectAnswer.getQuestionsId()}">
+				<input type="hidden"
+					name="id" th:value="${CorrectAnswer.getId()}">
 		</form>
 	</div>
 </body>
