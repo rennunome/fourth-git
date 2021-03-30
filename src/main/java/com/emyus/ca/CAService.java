@@ -31,7 +31,7 @@ public class CAService {
 		return caRepository.findById(caRequest);
 	}
 
-	public CorrectAnswer update(CARequest caRequest) {
-		return caRepository.update(caRequest);
+	public void update(CARequest caRequest) {
+		caRepository.update(caRequest);
 	}
 }

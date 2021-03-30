@@ -23,8 +23,8 @@ public class QuestionService {
 		questionRepository.create(questionRequest);
 	}
 
-	public Question update(QuestionRequest questionRequest) {
-		return questionRepository.update(questionRequest);
+	public void update(QuestionRequest questionRequest) {
+		questionRepository.update(questionRequest);
 	}
 
 	public Question findById(QuestionRequest questionRequest) {

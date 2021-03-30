@@ -13,7 +13,7 @@ import com.emyus.ca.CorrectAnswer;
 
 	void create(CARequest caRequest);
 
-	public CorrectAnswer update(CARequest caRequest);
+	void update(CARequest caRequest);
 
 	public CorrectAnswer findById(CARequest caRequest);
 }

@@ -31,10 +31,8 @@
 				th:object="${CorrectAnswer}">
 				<input type="submit" value="編集"> <input type="hidden"
 					name="questions_id" th:value="${CorrectAnswer.getQuestionsId()}">
-				<input type="text" name="id" th:value="${CorrectAnswer.getId()}">
 				<input type="hidden"
-					name="questions_id" th:value="${CorrectAnswer.getQuestionsId()}">
-					<input type="text" name="id" th:value="${CorrectAnswer.getId()}">
+					name="id" th:value="${CorrectAnswer.getId()}">
 			</form>
 		</th:block>
 		<form th:action="@{/qadelete}" method="POST">

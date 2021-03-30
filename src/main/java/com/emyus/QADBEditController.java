@@ -28,8 +28,8 @@ public class QADBEditController {
 	public String DBregister(@ModelAttribute("questions_id") int questions_id, @ModelAttribute("answer_id") int cas_id, @ModelAttribute("question") String question, @ModelAttribute("answer") String answer, Model model , QuestionRequest questionRequest, CARequest caRequest) {
 		questionRequest.setId(questions_id);
 		caRequest.setId(cas_id);
-		Question q = questionService.update(questionRequest);
-		CorrectAnswer ca = CAService.update(caRequest);
+		questionService.update(questionRequest);
+		CAService.update(caRequest);
 		return "redirect:/list";
 	}
 
