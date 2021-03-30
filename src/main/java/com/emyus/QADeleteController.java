@@ -38,13 +38,10 @@ public class QADeleteController {
 
 	@PostMapping("/qadelete")
 	public String delete(@ModelAttribute("questions_id") int questions_id, @ModelAttribute("answer_id") int cas_id, Model model , QuestionRequest questionRequest, CARequest caRequest) {
-		System.out.println("0");
-		System.out.println(questions_id);
-		System.out.println(cas_id);
-		System.out.println("1");
+		questionRequest.setId(questions_id);
+		caRequest.setId(cas_id);
 		questionService.delete(questionRequest);
 		CAService.delete(caRequest);
-		System.out.println("2");
 		return "redirect:/list";
 	}
 
