@@ -34,12 +34,13 @@ public class QAEditController {
 	}
 
 	@PostMapping("/qaeditconfirm")
-	public String displayEditConfirm(@ModelAttribute("questions_id") String questions_id, @ModelAttribute("id") String cas_id, @ModelAttribute("question") String question, @ModelAttribute("answer") String answer, Model model, QuestionRequest questionRequest, CARequest caRequest) {
+	public String displayEditConfirm(@ModelAttribute("questions_id") String questions_id, @ModelAttribute("answer_id") String cas_id, @ModelAttribute("question") String question, @ModelAttribute("answer") String answer, Model model, QuestionRequest questionRequest, CARequest caRequest) {
 		model.addAttribute("question", question);
 		model.addAttribute("answer", answer);
 		model.addAttribute("questions_id", questions_id);
 		model.addAttribute("answer_id", cas_id);
 		return "qaeditconfirm";
+
 	}
 
 }

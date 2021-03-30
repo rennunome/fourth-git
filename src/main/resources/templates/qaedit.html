@@ -15,7 +15,10 @@
 	</div>
 	<h1>問題・答えの編集</h1>
 	<form th:action="@{/qaeditconfirm}" method="POST">
-	<label for="question_id">問題：</label> <input type= "text" name= "question" th:value ="${question}"> <br>
+	<label for="question_id">問題：</label> <input type= "text" name= "question" th:value ="${question}">
+	 <input type= "hidden" name= "questions_id" th:value ="${questions_id}">
+	 <input type= "hidden" name= "answer_id" th:value ="${id}">
+	 <br>
 	<label for="answer_id">答え：</label> <input type= "text" name= "answer" th:value ="${answer}"> <br>
 	<input type="submit" value="確認">
 	</form>
