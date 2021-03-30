@@ -21,4 +21,8 @@
 	<update id= "update">
 	update questions set question = #{question} where id = #{id}
 	</update>
+
+	<delete id= "delete">
+	delete from questions where id = #{id}
+	</delete>
 </mapper>

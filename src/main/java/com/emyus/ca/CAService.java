@@ -34,4 +34,8 @@ public class CAService {
 	public void update(CARequest caRequest) {
 		caRepository.update(caRequest);
 	}
+
+	public void delete(CARequest caRequest) {
+		caRepository.delete(caRequest);
+	}
 }

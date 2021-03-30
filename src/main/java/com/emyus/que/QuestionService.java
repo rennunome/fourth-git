@@ -30,4 +30,8 @@ public class QuestionService {
 	public Question findById(QuestionRequest questionRequest) {
 		return questionRepository.findById(questionRequest);
 	}
+
+	public void delete(QuestionRequest questionRequest) {
+		questionRepository.delete(questionRequest);
+	}
 }
