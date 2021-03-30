@@ -21,10 +21,17 @@ public class CAService {
 	  }
 
 	public void create(CARequest caRequest) {
-		//System.out.println(caRequest);
 		CorrectAnswer ca = new CorrectAnswer();
 		ca.setAnswer(caRequest.getAnswer());
-		ca.setQuestionsId(caRequest.getQuestions_id());
+		ca.setQuestionsId(caRequest.getQuestionsId());
 		caRepository.create(caRequest);
+	}
+
+	public CorrectAnswer findById(CARequest caRequest) {
+		return caRepository.findById(caRequest);
+	}
+
+	public void update(CARequest caRequest) {
+		caRepository.update(caRequest);
 	}
 }

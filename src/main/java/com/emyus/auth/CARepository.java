@@ -12,4 +12,8 @@ import com.emyus.ca.CorrectAnswer;
 	public List<CorrectAnswer> findAll();
 
 	void create(CARequest caRequest);
+
+	void update(CARequest caRequest);
+
+	public CorrectAnswer findById(CARequest caRequest);
 }

@@ -20,8 +20,14 @@ public class QuestionService {
 	}
 
 	public void create(QuestionRequest questionRequest) {
-		Question que = new Question();
-		que.setQuestion(questionRequest.getQuestion());
 		questionRepository.create(questionRequest);
+	}
+
+	public void update(QuestionRequest questionRequest) {
+		questionRepository.update(questionRequest);
+	}
+
+	public Question findById(QuestionRequest questionRequest) {
+		return questionRepository.findById(questionRequest);
 	}
 }

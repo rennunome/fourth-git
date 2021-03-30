@@ -13,4 +13,12 @@
 	<insert id="create" parameterType= "String">
 		insert into questions (question, created_at, updated_at) values (#{question}, current_timestamp(), current_timestamp());
 	</insert>
+
+	<select id= "findById" resultType="com.emyus.que.Question">
+	select id, question from questions where id = #{id}
+	</select>
+
+	<update id= "update">
+	update questions set question = #{question} where id = #{id}
+	</update>
 </mapper>
