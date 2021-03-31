@@ -34,4 +34,8 @@ public class QuestionService {
 	public void delete(QuestionRequest questionRequest) {
 		questionRepository.delete(questionRequest);
 	}
+
+	public List<Question> findAllRandom() {
+		return questionRepository.findAllRandom();
+	}
 }

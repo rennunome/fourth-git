@@ -20,15 +20,7 @@ public class QADBRegisterController {
 
 	@Autowired
 	QuestionService questionService;
-
-	//@Autowired
-	//QuestionRequest questionRequest;
-
-	@Autowired
 	CAService caService;
-
-	//@Autowired
-	//CARequest caRequest;
 
 	@PostMapping("/qadbregister")
 	public String qadbregister(QuestionRequest questionRequest, CARequest caRequest) {
