@@ -14,9 +14,9 @@
 	</form>
 	</div>
 	<h1>テストの結果</h1>
-	<p>${username}さん</p><br>
-	<p>${question_ids.length}問中${score}問正解です。</p><br>
-	<p>${total}点でした。</p><br>
-	<p>${time}</p>
+	<p th:text= "${username} + 'さん'"></p><br>
+	<p th:text= "${question_ids.length} + '問中'"></p><p th:text= "${score} + '問正解です。'"></p><br>
+	<p th:text= "${total} + '点でした。'"></p><br>
+	<p th:text= "${time}"></p>
 	</body>
 </html>
