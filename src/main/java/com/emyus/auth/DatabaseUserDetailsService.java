@@ -1,5 +1,7 @@
 package com.emyus.auth;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	private HttpSession session;
+
 	@Override
 	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
 		User user = userRepository.identifyUser(id);
@@ -30,6 +33,11 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 
 	public User getOne(String username) {
 		return userRepository.getOne(username);
+	}
+
+	public List<User> findAll() {
+		return userRepository.findAll();
+
 	}
 
 }

@@ -24,7 +24,7 @@ public class RootController {
 	@PostMapping("/index")
 	public String index(Model model) {
 		byte adflag = (byte)session.getAttribute("admin_flag");
-		model.addAttribute("admin_flag" ,adflag);
+		model.addAttribute("admin_flag",adflag);
 		return "index";
 	}
 
