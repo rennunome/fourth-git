@@ -23,6 +23,7 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 			throw new UsernameNotFoundException(id + "is not found");
 		} else {
 			session.setAttribute("id", id);
+			session.setAttribute("admin_flag", user.getAdminFlag());
 			return user;
 		}
 	}
@@ -30,4 +31,5 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 	public User getOne(String username) {
 		return userRepository.getOne(username);
 	}
+
 }

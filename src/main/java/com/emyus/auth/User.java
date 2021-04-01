@@ -16,6 +16,7 @@ public class User implements UserDetails {
 	private String name;
 	private String password;
 	private int deleteflag;
+	private byte admin_flag;
 
 	public int getId() {
 		return id;
@@ -79,6 +80,14 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		// TODO 自動生成されたメソッド・スタブ
 		return true;
+	}
+
+	public byte getAdminFlag() {
+		return admin_flag;
+	}
+
+	public void setAdminFlag(byte admin_flag) {
+		this.admin_flag = admin_flag;
 	}
 
 }

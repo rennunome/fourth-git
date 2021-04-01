@@ -12,6 +12,7 @@
 		<h1>ようこそ！テスト自動採点システムへ！</h1>
 		<p>下記よりメニューを選択してください</p>
 	</div>
+	<th:block th:if="${admin_flag == 1}">
 	<form th:action="@{/list}" method="POST">
 	<input type="submit" value="問題を登録・編集する">
 	</form>
@@ -23,5 +24,18 @@
 	<form th:action="@{/histories}" method="POST">
 	<input type="submit" value="採点結果の履歴">
 	</form>
+	<form th:action="@{/userlists}" method="POST">
+	<input type="submit" value="ユーザーを追加・編集する">
+	</form>
+	</th:block>
+	<th: block th:if= "${admin_flag != 1}">
+	<form th:action="@{/test}" method="POST">
+	<input type="submit" value="テストをする">
+	</form>
+	<br>
+	<form th:action="@{/histories}" method="POST">
+	<input type="submit" value="採点結果の履歴">
+	</form>
+	</th:block>
 </body>
 </html>

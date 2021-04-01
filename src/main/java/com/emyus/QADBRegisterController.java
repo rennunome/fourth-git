@@ -20,6 +20,7 @@ public class QADBRegisterController {
 
 	@Autowired
 	QuestionService questionService;
+	@Autowired
 	CAService caService;
 
 	@PostMapping("/qadbregister")
