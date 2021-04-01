@@ -5,7 +5,7 @@
 
 	<!--今回利用するステートメントの定義 -->
 	<select id="identifyUser" parameterType="java.lang.String"
-		resultMap="userDitails">
+		resultType="com.emyus.auth.User">
 		select
 		id, password
 		from users
@@ -13,10 +13,18 @@
 		and deleteflag = 0
 	</select>
 
-	<!--UserクラスのプロパティとDBのデータをマップする -->
+	<!--UserクラスのプロパティとDBのデータをマップする
 	<resultMap type="com.emyus.auth.User" id="userDitails">
 		<result property="id" column="id" />
 		<result property="password" column="password" />
-	</resultMap>
+	</resultMap> -->
 
+
+<select id="getOne" parameterType="java.lang.String"
+		resultType="com.emyus.auth.User" >
+		select
+		id, password, name
+		from users
+		where id = #{id}
+	</select>
 </mapper>

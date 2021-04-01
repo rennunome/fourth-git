@@ -8,22 +8,23 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class User implements UserDetails {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 2041607871453549860L;
-	
+
 	private int id;
+	private String name;
 	private String password;
 	private int deleteflag;
-	
+
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public int getDeleteFlag() {
 		return deleteflag;
 	}
@@ -41,15 +42,19 @@ public class User implements UserDetails {
 	public String getPassword() {
 		return password;
 	}
-	
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	@Override
 	public String getUsername() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return name;
+	}
+
+	public void setUsername(String name) {
+		this.name = name;
 	}
 
 	@Override

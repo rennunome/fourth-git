@@ -19,6 +19,6 @@ import com.emyus.ca.CorrectAnswer;
 
 	void delete(CARequest caRequest);
 
-	public List<CorrectAnswer> findByQuestionId();
+	public List<CorrectAnswer> findByQuestionId(int question_id);
 
 	}

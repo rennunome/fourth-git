@@ -40,6 +40,6 @@ public class CAService {
 	}
 
 	public List<CorrectAnswer> findByQuestionId(int questions_id) {
-		return caRepository.findByQuestionId();
+		return caRepository.findByQuestionId(questions_id);
 	}
 }
