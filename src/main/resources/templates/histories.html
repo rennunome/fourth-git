@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Testページ</title>
+</head>
+<body>
+	<div align="right">
+		<form th:action="@{/logout}" method="POST">
+			<input type="submit" value="Logout">
+		</form>
+		<form th:action="@{/index}" method="POST">
+			<input type="submit" value="Top">
+		</form>
+	</div>
+	<div align="center">
+		<h1>テスト採点結果の履歴一覧</h1>
+	</div>
+	<div th:each="histories : ${historieslist}">
+	<table border="1">
+		<tr>
+			<th>氏名</th>
+			<th>得点</th>
+			<th>採点時間</th>
+		<tr>
+			<td th:text= "${username} + 'さん'"></td>
+			<td th:text= "${histories.point} + '点'"></td>
+			<td th:text= ${histories.createdAt}></td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

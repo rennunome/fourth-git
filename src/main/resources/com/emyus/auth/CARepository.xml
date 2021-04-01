@@ -25,4 +25,8 @@
 	<delete id="delete">
 		delete from correct_answers where id = #{id}
 	</delete>
+
+	<select id= "findByQuestionId" resultType="com.emyus.ca.CorrectAnswer">
+	select id, questions_id, answer from correct_answers where questions_id = #{questions_id}
+	</select>
 </mapper>

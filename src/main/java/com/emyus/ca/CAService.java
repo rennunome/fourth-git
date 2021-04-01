@@ -38,4 +38,8 @@ public class CAService {
 	public void delete(CARequest caRequest) {
 		caRepository.delete(caRequest);
 	}
+
+	public List<CorrectAnswer> findByQuestionId(int questions_id) {
+		return caRepository.findByQuestionId(questions_id);
+	}
 }

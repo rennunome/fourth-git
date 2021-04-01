@@ -25,4 +25,8 @@
 	<delete id= "delete">
 	delete from questions where id = #{id}
 	</delete>
+
+	<select id= "findAllRandom" resultType="com.emyus.que.Question">
+	select id, question from questions order by rand()
+	</select>
 </mapper>

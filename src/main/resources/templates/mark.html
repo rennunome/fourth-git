@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>テスト結果ページ</title>
+</head>
+<body>
+<div align="right">
+	<form th:action="@{/logout}" method="POST">
+		<input type="submit" value="Logout">
+	</form>
+	<form th:action="@{/index}" method="POST">
+	<input type="submit" value="Top">
+	</form>
+	</div>
+	<h1>テストの結果</h1>
+	<p th:text= "${user.getUsername()} + 'さん'"></p><br>
+	<p th:text= "${question_ids} + '問中'"></p><p th:text= "${score} + '問正解です。'"></p><br>
+	<p th:text= "${total} + '点でした。'"></p><br>
+	<p th:text= "${time}"></p>
+	</body>
+</html>

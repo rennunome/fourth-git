@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Testページ</title>
+</head>
+<body>
+	<div align="right">
+		<form th:action="@{/logout}" method="POST">
+			<input type="submit" value="Logout">
+		</form>
+		<form th:action="@{/index}" method="POST">
+			<input type="submit" value="Top">
+		</form>
+	</div>
+	<div align="center">
+		<h1>テスト一覧</h1>
+	</div>
+	<form th:action="@{/mark}" method="POST">
+		<div th:each="question : ${questionlist}">
+			<label for="question_id">問題：</label> <input class = "question" type="text"
+				name="Question" th:value="${question.question}" readonly>
+				<input type="hidden"
+				name="question_id" th:value="${question.id}">
+		<label for="answer_id">回答</label> <input class = "answer" type="text" name="test_answer"
+			th:value="${test_answer}">
+			</div>
+			<input type="submit" value="採点">
+	</form>
+</body>
+</html>
