@@ -16,8 +16,8 @@ public class HistoriesService {
 	@Autowired
 	private HistoriesRepository historiesRepository;
 
-	public List<Histories> findAll() {
-	    return historiesRepository.findAll();
+	public List<Histories> findAll(int user_id) {
+	    return historiesRepository.findAll(user_id);
 	  }
 
 	public void create(HistoriesRequest historiesRequest) {

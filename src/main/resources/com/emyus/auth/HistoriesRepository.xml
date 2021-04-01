@@ -8,4 +8,7 @@
 		insert into histories (user_id, created_at, point) values (#{user_id}, current_timestamp(), #{point});
 	</insert>
 
+	<select id="findAll" resultType="com.emyus.his.Histories">
+		select * from histories where user_id = #{user_id}
+	</select>
 </mapper>

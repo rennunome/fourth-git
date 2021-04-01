@@ -36,10 +36,10 @@ public class TestController {
 	private DatabaseUserDetailsService userService;
 
 	@Autowired
-	HistoriesService historiesService;
+	private HistoriesService historiesService;
 
 	@Autowired
-	HttpSession session;
+	private HttpSession session;
 
 	@PostMapping("/test")
 	public String displayTest(Model model) {
@@ -100,10 +100,5 @@ public class TestController {
 		historiesService.create(historiesRequest);
 
 		return "/mark";
-	}
-
-	private int[] getParameterValues(String string) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
 	}
 }

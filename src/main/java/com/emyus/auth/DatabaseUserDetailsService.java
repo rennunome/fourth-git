@@ -15,7 +15,7 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 	private UserRepository userRepository;
 
 	@Autowired
-	HttpSession session;
+	private HttpSession session;
 	@Override
 	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
 		User user = userRepository.identifyUser(id);

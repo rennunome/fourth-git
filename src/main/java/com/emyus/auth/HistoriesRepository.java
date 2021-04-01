@@ -12,6 +12,5 @@ public interface HistoriesRepository {
 
 	public void create(HistoriesRequest historiesRequest);
 
-	public List<Histories> findAll();
-
+	public List<Histories> findAll(int user_id);
 }
