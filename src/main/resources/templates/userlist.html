@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>User Listページ</title>
+</head>
+<body>
+	<div align="right">
+		<form th:action="@{/logout}" method="POST">
+			<input type="submit" value="Logout">
+		</form>
+		<form th:action="@{/index}" method="POST">
+			<input type="submit" value="Top">
+		</form>
+	</div>
+	<div align="center">
+		<h1>ユーザー一覧</h1>
+		<form th:action="@{/user_register}" method="POST">
+			<input type="submit" value="新規登録">
+		</form>
+	</div>
+	<div th:each="user : ${userlist}">
+		<label for="user_id">ID: </label> <label for="auth">権限 </label>
+		 <label for="user_name">ユーザー名</label>
+		 <input type="text" name="user_id" th:value="${user.id}">
+		 <input type="text" name="admin" th:value="${user.adminFlag == 1 ? '管理者' : '一般'}">
+		  <input type="text" name="user_name" th:value="${user.Username}">
+	<form th:action="@{/useredit}" method="POST" th:object="${user}">
+		<input type ="submit" value="編集" >
+		<input type="hidden" name="user_id" th:value="${user.id}">
+	</form>
+	<form th:action="@{/userdelete}" method="POST" th:object="${user}">
+		<input type="submit" value="削除"> <input type="hidden"
+			name="user_id" th:value="${user.id}">
+	</form>
+	</div>
+</body>
+</html>
