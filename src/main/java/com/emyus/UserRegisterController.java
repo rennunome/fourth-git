@@ -19,9 +19,6 @@ public class UserRegisterController {
 	@Autowired
 	private DatabaseUserDetailsService userService;
 
-	@Autowired
-	private UserRequest userRequest;
-
 	@PostMapping("/userregister")
 	public String display() {
 		return "/userregister";
@@ -36,20 +33,21 @@ public class UserRegisterController {
 	}
 
 	@PostMapping("/user_register")
-	public String dbregister(@ModelAttribute("user_name") String user_name, @ModelAttribute("password") String password ,@ModelAttribute("admin") String admin, Model model) {
+	public String dbregister(@ModelAttribute("user_name") String user_name, @ModelAttribute("password") String password ,@ModelAttribute("admin") String admin, Model model, UserRequest userRequest) {
+		userRequest = new UserRequest();
 		if(admin.isEmpty()) {
 			byte admin_flag = 0;
 			userRequest.setUsername(user_name);
 			userRequest.setPassword(password);
 			userRequest.setAdminFlag(admin_flag);
-			userService.create();
+			userService.create(userRequest);
 		}
 		else{
 			byte admin_flag = 1;
 			userRequest.setUsername(user_name);
 			userRequest.setPassword(password);
 			userRequest.setAdminFlag(admin_flag);
-			userService.create();
+			userService.create(userRequest);
 		}
 		return "redirect:/userlist";
 	}

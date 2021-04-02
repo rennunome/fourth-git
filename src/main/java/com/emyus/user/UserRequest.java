@@ -14,7 +14,14 @@ public class UserRequest implements Serializable{
 	private byte deleteflag;
 	private Timestamp deleted_at;
 
-	UserRequest(){
+	public UserRequest(int id, String name, String password, byte admin_flag){
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.admin_flag = admin_flag;
+	}
+
+	public UserRequest(){
 	}
 
 	public int getId() {

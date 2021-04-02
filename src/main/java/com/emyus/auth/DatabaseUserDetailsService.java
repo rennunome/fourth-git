@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.emyus.user.UserRequest;
+
 @Service
 public class DatabaseUserDetailsService implements UserDetailsService {
 
@@ -39,7 +41,7 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 		return userRepository.findAll();
 
 	}
-	public void create() {
+	public void create(UserRequest userRequest) {
 	}
 
 }

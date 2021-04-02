@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.emyus.user.UserRequest;
+
 @Mapper
 public interface UserRepository {
 	public User identifyUser(String id);
@@ -12,5 +14,5 @@ public interface UserRepository {
 
 	public List<User> findAll();
 
-	public void create();
+	public void create(UserRequest userRequest);
 }
