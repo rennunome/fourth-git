@@ -23,4 +23,8 @@
 		select *
 		from users
 	</select>
+
+	<insert id="create" parameterType= "com.emyus.user.UserRequest">
+		insert into users (name, password, admin_flag, created_at, updated_at, deleteflag, deleted_at) values (#{name}, #{password}, #{admin_flag}, current_timestamp(), current_timestamp(), #{deleteflag}, current_timestamp());
+	</insert>
 </mapper>

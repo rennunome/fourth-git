@@ -39,5 +39,7 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 		return userRepository.findAll();
 
 	}
+	public void create() {
+	}
 
 }

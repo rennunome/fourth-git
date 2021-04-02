@@ -11,4 +11,6 @@ public interface UserRepository {
 	public User getOne(String username);
 
 	public List<User> findAll();
+
+	public void create();
 }
