@@ -21,14 +21,18 @@
 	<select id="findAll" parameterType="java.lang.String"
 		resultType="com.emyus.auth.User">
 		select *
-		from users
+		from users where deleteflag = 0
 	</select>
 
 	<insert id="create" parameterType="com.emyus.user.UserRequest">
-		insert into users (name, password, admin_flag, created_at, updated_at, deleteflag, deleted_at) values (#{name}, #{password}, #{admin_flag}, current_timestamp(), current_timestamp(), #{deleteflag}, current_timestamp());
+		insert into users (name, password, admin_flag, created_at, updated_at, deleted_at) values (#{name}, #{password}, #{admin_flag}, current_timestamp(), current_timestamp(), current_timestamp());
 	</insert>
 
 	<update id= "update">
 	update users set password = #{password}, name = #{name}, admin_flag = #{admin_flag} where id = #{id}
+	</update>
+
+	<update id= "delete">
+	update users set deleteflag = 1, deleted_at = current_timestamp() where id = #{id}
 	</update>
 </mapper>

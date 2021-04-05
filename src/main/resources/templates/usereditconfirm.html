@@ -21,11 +21,12 @@
 			<label for="user_name">ユーザー名：</label>
 			<input type="text" name="user_name" id="user_name" th:value="${user_name}" readonly><br>
 			<label for="password">PW：</label>
-			<input type="text" name="password" id="password" th:value="${password}"><br>
+			<input type="text" name="password" id="password" th:value="${password}" readonly>
+			<p th:text="${error_message_pw}"></p>
 			<label for="passwordconfirm">PW確認：</label>
-			 <input type="text" name="passwordconfirm" id="passwordconfirm"><br>
+			 <input type="text" name="passwordconfirm" id="passwordconfirm" th:value="${password_confirm}"readonly><br>
 			  <label for="admin">管理者：</label>
-			  <input type="text" name="admin" th:value="${admin_flag == 1 ? '管理者' : '一般'}">
+			  <input type="text" name="admin" th:value="${admin_flag == 1 ? '管理者' : '一般'}" readonly>
 			  <input type="hidden" name="admin_flag" th:value="${admin_flag}">
 			   <br>
 	</div>

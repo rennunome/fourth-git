@@ -17,4 +17,6 @@ public interface UserRepository {
 	public void create(UserRequest userRequest);
 
 	public void update(UserRequest userRequest);
+
+	public void delete(UserRequest userRequest);
 }

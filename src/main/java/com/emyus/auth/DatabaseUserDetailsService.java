@@ -48,4 +48,8 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 	public void update(UserRequest userRequest) {
 		userRepository.update(userRequest);
 	}
+
+	public void delete(UserRequest userRequest) {
+		userRepository.delete(userRequest);
+	}
 }

@@ -32,9 +32,11 @@
 		<input type="hidden" name="admin_flag" th:value="${user.adminFlag}">
 		<input type="hidden" name="password" th:value="${user.password}">
 	</form>
-	<form th:action="@{/userdelete}" method="POST" th:object="${user}">
-		<input type="submit" value="削除"> <input type="hidden"
-			name="user_id" th:value="${user.id}">
+	<form th:action="@{/userdeleteconfirm}" method="POST" th:object="${user}">
+		<input type="submit" value="削除"> <input type="hidden" name="user_id" th:value="${user.id}">
+		<input type="hidden" name="user_name" th:value="${user.Username}">
+		<input type="hidden" name="admin_flag" th:value="${user.adminFlag}">
+		<input type="hidden" name="password" th:value="${user.password}">
 	</form>
 	</div>
 </body>

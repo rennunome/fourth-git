@@ -6,12 +6,7 @@ import java.sql.Timestamp;
 public class UserRequest implements Serializable{
 
 	private int id;
-	//@NotBlank
-	//@Pattern(message = "ユーザーネームを半角英数字入力してください。", regexp = "^[a-zA-Z0-9]+$")
 	private String name;
-	//@NotBlank
-	//@Size(min = 8)
-	//@Pattern(message = "パスワードを半角英数字で入力してください。", regexp = "^[a-zA-Z0-9]+$")
 	private String password;
 	private byte admin_flag;
 	private Timestamp created_at;
@@ -92,5 +87,4 @@ public class UserRequest implements Serializable{
 	public void setDeletedAt(Timestamp deleted_at) {
 		this.deleted_at = deleted_at;
 	}
-
 }
