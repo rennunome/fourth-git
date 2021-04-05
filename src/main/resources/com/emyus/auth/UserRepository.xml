@@ -15,7 +15,7 @@
 
 	<select id="getOne" parameterType="java.lang.String"
 		resultType="com.emyus.auth.User">
-		select id, password, name from users where id = #{id}
+		select id, password, name, admin_flag from users where id = #{id}
 	</select>
 
 	<select id="findAll" parameterType="java.lang.String"
@@ -24,7 +24,7 @@
 		from users
 	</select>
 
-	<insert id="create" parameterType="java.lang.String">
+	<insert id="create" parameterType="com.emyus.user.UserRequest">
 		insert into users (name, password, admin_flag, created_at, updated_at, deleteflag, deleted_at) values (#{name}, #{password}, #{admin_flag}, current_timestamp(), current_timestamp(), #{deleteflag}, current_timestamp());
 	</insert>
 </mapper>

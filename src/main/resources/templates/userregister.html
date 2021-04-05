@@ -18,9 +18,13 @@
 		</div>
 		<form th:action="@{/userconfirm}" method="POST">
 		<label for="user_name">ユーザー名：</label> <input type="text"
-			name="user_name" id="user_name" placeholder="半角英数字のみ"><br>
+			name="user_name" id="user_name" placeholder="半角英数字のみ">
+			<p th:text="${error_message_un}"></p>
+			<br>
 		<label for="password">PW：</label> <input type="text" name="password"
-			id="password" placeholder="半角英数字のみ8文字以上"><br> <label
+			id="password" placeholder="半角英数字のみ8文字以上">
+			<p th:text="${error_message_pw}"></p>
+			<br> <label
 			for="passwordconfirm">PW確認：</label> <input type="text"
 			name="passwordconfirm" id="passwordconfirm"
 			placeholder="半角英数字のみ8文字以上"><br> <label for="admin">管理者：</label>
