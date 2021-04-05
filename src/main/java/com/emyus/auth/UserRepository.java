@@ -15,4 +15,6 @@ public interface UserRepository {
 	public List<User> findAll();
 
 	public void create(UserRequest userRequest);
+
+	public void update(UserRequest userRequest);
 }

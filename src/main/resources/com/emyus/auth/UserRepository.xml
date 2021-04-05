@@ -27,4 +27,8 @@
 	<insert id="create" parameterType="com.emyus.user.UserRequest">
 		insert into users (name, password, admin_flag, created_at, updated_at, deleteflag, deleted_at) values (#{name}, #{password}, #{admin_flag}, current_timestamp(), current_timestamp(), #{deleteflag}, current_timestamp());
 	</insert>
+
+	<update id= "update">
+	update users set password = #{password}, name = #{name}, admin_flag = #{admin_flag} where id = #{id}
+	</update>
 </mapper>

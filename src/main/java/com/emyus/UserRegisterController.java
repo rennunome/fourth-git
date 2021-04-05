@@ -33,29 +33,23 @@ public class UserRegisterController {
 	public String register(@ModelAttribute("user_name") String user_name, @ModelAttribute("password") String password ,@ModelAttribute("admin") String admin, Model model, @Validated UserRequest userRequest) {
 		String error_message_un = "";
 		String error_message_pw = "";
+		boolean is_error = false;
 
 		//入力値に対してのバリデーション
 		//ユーザー名のみが半角英数字入力ではない場合
 		if (user_name != null && !user_name.matches("^[A-Za-z0-9]+$")) {
 			error_message_un = "ユーザー名は半角英数字で入力してください";
 			model.addAttribute("error_message_un", error_message_un);
-			System.out.println("B");
-			return "/userregister";
+			is_error = true;
 		}
 		//PWが8文字以下、半角英数字入力ではない場合
 		if (password != null && password.length() < 8 || !password.matches("^[A-Za-z0-9]+$")){
 			error_message_pw = "パスワードは半角英数字・8文字以上で入力してください";
 			model.addAttribute("error_message_pw", error_message_pw);
-			System.out.println("C");
-			return "/userregister";
+			is_error = true;
 		}
-		//ユーザー名が半角英数字入力ではなく、PWが8文字以下、半角英数字入力ではない場合
-		if(user_name != null && !user_name.matches("^[A-Za-z0-9]+$") && password != null || password.length() < 8 || !password.matches("^[A-Za-z0-9]+$")) {
-			error_message_un = "ユーザー名は半角英数字で入力してください";
-			error_message_pw = "パスワードは半角英数字・8文字以上で入力してください";
-			model.addAttribute("error_message_un", error_message_un);
-			model.addAttribute("error_message_pw", error_message_pw);
-			System.out.println("A");
+		// エラーがあったらuserregister画面に遷移
+		if (is_error) {
 			return "/userregister";
 		}
 
@@ -64,11 +58,9 @@ public class UserRegisterController {
 		model.addAttribute("user_name", user_name);
 		model.addAttribute("password", password);
 		model.addAttribute("admin", admin);
-		System.out.println("D");
 		}
 		return "/userconfirm";
 	}
-
 	@PostMapping("/user_register")
 	public String dbregister(@ModelAttribute("user_name") String user_name, @ModelAttribute("password") String password ,@ModelAttribute("admin") String admin, Model model, UserRequest userRequest) {
 		userRequest = new UserRequest();

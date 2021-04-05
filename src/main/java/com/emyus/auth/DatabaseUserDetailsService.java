@@ -44,4 +44,8 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 	public void create(UserRequest userRequest) {
 		userRepository.create(userRequest);
 	}
+
+	public void update(UserRequest userRequest) {
+		userRepository.update(userRequest);
+	}
 }

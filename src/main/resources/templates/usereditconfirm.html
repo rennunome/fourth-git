@@ -25,8 +25,8 @@
 			<label for="passwordconfirm">PW確認：</label>
 			 <input type="text" name="passwordconfirm" id="passwordconfirm"><br>
 			  <label for="admin">管理者：</label>
-			  <input type="text" name="admin_flag" th:value="${admin_flag == 1 ? '管理者' : '一般'}">
-			  <input type="hidden" name="admin" th:value="${admin_flag}">
+			  <input type="text" name="admin" th:value="${admin_flag == 1 ? '管理者' : '一般'}">
+			  <input type="hidden" name="admin_flag" th:value="${admin_flag}">
 			   <br>
 	</div>
 	<div align="right">
