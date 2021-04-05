@@ -1,5 +1,6 @@
 package com.emyus.auth;
 
+import java.sql.Timestamp;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -17,6 +18,7 @@ public class User implements UserDetails {
 	private String password;
 	private int deleteflag;
 	private byte admin_flag;
+	private Timestamp deleted_at;
 
 	public int getId() {
 		return id;
@@ -88,6 +90,14 @@ public class User implements UserDetails {
 
 	public void setAdminFlag(byte admin_flag) {
 		this.admin_flag = admin_flag;
+	}
+
+	public Timestamp getDeletedAt() {
+		return deleted_at;
+	}
+
+	public void setDeletedAt(Timestamp deleted_at) {
+		this.deleted_at = deleted_at;
 	}
 
 }

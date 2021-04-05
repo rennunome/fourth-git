@@ -12,13 +12,13 @@ import com.emyus.que.QuestionRequest;
 public interface QuestionRepository {
 	public List<Question> findAll();
 
-	void create(QuestionRequest questionRequest);
+	public void create(QuestionRequest questionRequest);
 
-	void update(QuestionRequest questionRequest);
+	public void update(QuestionRequest questionRequest);
 
 	public Question findById(QuestionRequest questionRequest);
 
-	void delete(QuestionRequest questionRequest);
+	public void delete(QuestionRequest questionRequest);
 
 	public List<Question> findAllRandom();
 }
