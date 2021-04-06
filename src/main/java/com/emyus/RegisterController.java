@@ -16,8 +16,7 @@ public class RegisterController {
 	}
 
 	@PostMapping("/qaregconfirm")
-	public String qaregconfirm(@ModelAttribute("Question") String question, @ModelAttribute("questions_id") String questions_id, Model model, HttpServletRequest request) {
-		System.out.println("questions_id= " + questions_id);
+	public String qaregconfirm(@ModelAttribute("Question") String question, Model model, HttpServletRequest request) {
 		String[] answer = request.getParameterValues("answer");
 		String error_message_question = "";
 		String error_message_answer = "";
@@ -50,7 +49,6 @@ public class RegisterController {
 		}
 		model.addAttribute("Question", question);
 		model.addAttribute("answer", answer);
-		model.addAttribute("questions_id", questions_id);
 		return "qaregconfirm";
 	}
 }

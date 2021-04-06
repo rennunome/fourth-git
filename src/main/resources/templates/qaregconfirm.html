@@ -17,8 +17,6 @@
 	<form th:action="@{/qadbregister}" method="POST">
 	<label for="question_id">問題：</label>
 	<input type= "text" name= "Question" th:value ="${Question}">
-	<input type= "hidden" name= "questions_id" th:value= "${questions_id}">
-	<input type= "text" name= "questions_id" th:value= "${questions_id}">
 	<br>
 	<label for="answer_id">答え：</label>
 	<!-- 配列で受け取ったanswerをループで表示 -->
