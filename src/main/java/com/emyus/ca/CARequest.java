@@ -25,7 +25,7 @@ public class CARequest implements Serializable {
 			this.id = id;
 		}
 
-		CARequest(){
+		public CARequest(){
 		}
 
 		public int getQuestionsId() {
