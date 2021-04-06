@@ -20,8 +20,12 @@
 	 <input type= "hidden" name= "questions_id" th:value= "${questionRequest}">
 	 <p th:text= "${error_message_question}"></p>
 	 <br>
-	<label for="answer_id">答え：</label> <input type= "text" name= "answer" th:object= "${CARequest}">
+	<label for="answer_id">答え：</label> <input type= "text" name= "answer" th:object= "${CARequest}"><br>
+	 <input type= "text" name= "answer" th:object= "${CARequest}"><br>
+	 <input type= "text" name= "answer" th:object= "${CARequest}">
 	 <p th:text= "${error_message_answer}"></p>
+	<input type= "hidden" name= "answers_id" th:object= "${CARequest}">
+	<input type= "hidden" name= "answers_id" th:object= "${CARequest}">
 	<input type= "hidden" name= "answers_id" th:object= "${CARequest}">
 	<br>
 	<input type= "submit" value="確認">

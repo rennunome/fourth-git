@@ -17,7 +17,11 @@
 	<form th:action="@{/qadbregister}" method="POST">
 	<label for="question_id">問題：</label> <input type= "text" name= "Question" th:value ="${Question}">
 	<br>
-	<label for="answer_id">答え：</label> <input type= "text" name= "answer" th:value ="${answer}">
+	<label for="answer_id">答え：</label>
+	<!-- 配列で受け取ったanswer[i]をループで表示 -->
+	<input th:text="${for (int i =0; i < answers.length; i++){}">
+	<input type= "text" name= "answer" th:value ="${(String[])answer[i]}">
+	<input th:text= "${}}">
 	<br>
 	<input type="submit" value="登録">
 	</form>
