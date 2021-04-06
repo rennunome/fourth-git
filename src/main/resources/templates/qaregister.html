@@ -17,16 +17,14 @@
 	<form th:action="@{/qaregconfirm}" th:method="POST">
 	<label for="question_id">問題：</label>
 	 <input type= "text" name= "Question" th:object= "${questionRequest}">
-	 <input type= "hidden" name= "questions_id" th:value= "${questionRequest}">
-	 <p th:text= "${error_message_question}"></p>
+	 <input type= "hidden" name= "questions_id" th:value= "${questions_id}">
+	 <p th:text= "${error_message_question}"/>
 	 <br>
-	<label for="answer_id">答え：</label> <input type= "text" name= "answer" th:object= "${CARequest}"><br>
-	 <input type= "text" name= "answer" th:object= "${CARequest}"><br>
-	 <input type= "text" name= "answer" th:object= "${CARequest}">
-	 <p th:text= "${error_message_answer}"></p>
-	<input type= "hidden" name= "answers_id" th:object= "${CARequest}">
-	<input type= "hidden" name= "answers_id" th:object= "${CARequest}">
-	<input type= "hidden" name= "answers_id" th:object= "${CARequest}">
+<label for="answer_id">答え：</label> <input type= "text" name= "answer" th:object= "${CARequest}"><br>
+<input type= "text" name= "answer" th:object= "${CARequest}"><br>
+<input type= "text" name= "answer" th:object= "${CARequest}"><br>
+	<input type= "hidden" name= "answers_id" th:value= "${answers_id}">
+	 <p th:text= "${error_message_answer}"/>
 	<br>
 	<input type= "submit" value="確認">
 	</form>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.emyus.ca.CARequest;
@@ -24,7 +25,11 @@ public class QADBRegisterController {
 	CAService caService;
 
 	@PostMapping("/qadbregister")
-	public String qadbregister(QuestionRequest questionRequest, CARequest caRequest) {
+	public String qadbregister(@ModelAttribute("questions_id") String questions_id, @ModelAttribute("answer") String[] answer, QuestionRequest questionRequest, CARequest caRequest) {
+		for (int i = 0; i > answer.length; i++) {
+		caRequest.setAnswer(answer[i]);
+		}
+		caRequest.setQuestions_id(Integer.parseInt(questions_id));
 		questionService.create(questionRequest);
 		caService.create(caRequest);
 		return "redirect:/list";
