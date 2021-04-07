@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Register Confirmページ</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div align="right">
@@ -16,12 +17,12 @@
 	<h1>問題・答えの登録確認</h1>
 	<form th:action="@{/qadbregister}" method="POST">
 	<label for="question_id">問題：</label>
-	<input type= "text" name= "Question" th:value ="${Question}">
+	<input type= "text" name= "Question" class= "question" th:value="${Question}">
 	<br>
 	<label for="answer_id">答え：</label>
 	<!-- 配列で受け取ったanswerをループで表示 -->
 	<div th:each="answer : ${answer}">
-	<input type= "text" name= "answer" th:value ="${answer}">
+	<input type= "text" name= "answer" class= "answer" th:value="${answer}">
 	</div>
 	<br>
 	<input type="submit" value="登録">
