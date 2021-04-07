@@ -28,13 +28,13 @@ public class QADBRegisterController {
 	@PostMapping("/qadbregister")
 	public String qadbregister(QuestionRequest questionRequest, CARequest caRequest, HttpServletRequest request) {
 		String[] answer = request.getParameterValues("answer");
-		questionService.create(questionRequest);
 		for (int i = 0; i < answer.length; i++) {
 			    if (answer[i] != null) {
 			        caRequest.setAnswer(answer[i]);
 			        caService.create(caRequest);
 			    }
 			}
+		questionService.create(questionRequest);
 		return "redirect:/list";
 	}
 
