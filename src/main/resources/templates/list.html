@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Listページ</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div align="right">
@@ -21,11 +22,11 @@
 	</div>
 	<div th:each="question : ${questionlist}">
 		<label for="question_id" th:text = "'問題： ' + ${question.id}"></label>
-		<input type="text" name="Question" th:value="${question.question}">
-	</div>
+		<input type="text" name="Question" class= "question" th:value="${question.question}">
+		</div>
 	<div th:each="CorrectAnswer : ${calist}">
 		<label for="answer_id">答え：</label> <input type="text"
-			name="CorrectAnswer" th:value="${CorrectAnswer.answer}">
+			name="CorrectAnswer" class= "answer" th:value="${CorrectAnswer.answer}">
 		<th:block th:if="${CorrectAnswer != null}">
 			<form th:action="@{/qaedit}" method="POST"
 				th:object="${CorrectAnswer}">
