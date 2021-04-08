@@ -23,8 +23,8 @@
 	<div th:each="question : ${questionlist}">
 		<label for="question_id" th:text = "'問題： ' + ${question.id}"></label>
 		<input type="text" name="Question" class= "question" th:value="${question.question}">
-		</div>
 	<div th:each="CorrectAnswer : ${calist}">
+	<th:block th:if="${CorrectAnswer.getQuestionsId() == question.getId()}">
 		<label for="answer_id">答え：</label> <input type="text"
 			name="CorrectAnswer" class= "answer" th:value="${CorrectAnswer.answer}">
 		<th:block th:if="${CorrectAnswer != null}">
@@ -43,6 +43,8 @@
 				<input type="hidden"
 					name="id" th:value="${CorrectAnswer.getId()}">
 		</form>
+		</th:block>
+		</div>
 	</div>
 </body>
 </html>

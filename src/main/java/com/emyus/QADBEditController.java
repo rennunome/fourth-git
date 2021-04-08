@@ -2,6 +2,8 @@ package com.emyus;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,11 +27,26 @@ public class QADBEditController {
 	private CAService CAService;
 
 	@PostMapping("/qaeditconfirm2")
-	public String DBregister(@ModelAttribute("questions_id") int questions_id, @ModelAttribute("answer_id") int cas_id, @ModelAttribute("question") String question, @ModelAttribute("answer") String answer, Model model , QuestionRequest questionRequest, CARequest caRequest) {
+	public String DBregister(@ModelAttribute("questions_id") int questions_id, @ModelAttribute("question") String question, Model model , QuestionRequest questionRequest, CARequest caRequest, HttpServletRequest request) {
 		questionRequest.setId(questions_id);
-		caRequest.setId(cas_id);
 		questionService.update(questionRequest);
-		CAService.update(caRequest);
+		String[] answer = request.getParameterValues("answer");
+		String[] answer_id = request.getParameterValues("answer_id");
+		//取得しているidの数は2
+		System.out.println(answer_id.length);
+		int[] cas_id = new int[answer_id.length];
+		for(int i = 0; i < answer_id.length; i++) {
+			//それぞれint化してcorrect_answersのidにセット
+			int value = Integer.parseInt(answer_id[i]);
+	    	cas_id[i] = value;
+	    	caRequest.setId(cas_id[i]);
+		}
+		for (int i = 0; i < answer.length; i++) {
+			    if (answer[i] != null) {
+			        caRequest.setAnswer(answer[i]);
+			        CAService.update(caRequest);
+			    }
+			}
 		return "redirect:/list";
 	}
 
