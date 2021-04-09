@@ -25,14 +25,14 @@
 		<input type="text" name="Question" class= "question" th:value="${question.question}">
 	<div th:each="CorrectAnswer : ${calist}">
 	<th:block th:if="${CorrectAnswer.getQuestionsId() == question.getId()}">
-		<label for="answer_id">答え：</label> <input type="text"
+		<label for="answer_id" th:text = "'答え：' + ${CorrectAnswer.getId()}"></label> <input type="text"
 			name="CorrectAnswer" class= "answer" th:value="${CorrectAnswer.answer}">
 		<th:block th:if="${CorrectAnswer != null}">
 			<form th:action="@{/qaedit}" method="POST"
 				th:object="${CorrectAnswer}">
 				<input type="submit" value="編集"> <input type="hidden"
 					name="questions_id" th:value="${CorrectAnswer.getQuestionsId()}">
-					<input type="text"
+					<input type="hidden"
 					name="id" th:value="${CorrectAnswer.getId()}">
 			</form>
 		</th:block>

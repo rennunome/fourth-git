@@ -32,20 +32,17 @@ public class QADBEditController {
 		questionService.update(questionRequest);
 		String[] answer = request.getParameterValues("answer");
 		String[] answer_id = request.getParameterValues("answer_id");
-		System.out.println(answer.length);
-		List<CorrectAnswer> c_alist = CAService.findByQuestionId(questions_id);
-		System.out.println(c_alist.size());
-		for(int i = 0; i < c_alist.size(); i++) {
-			for(int j=0; j <answer_id.length; j++) {
-				System.out.println("Answer_id =" + answer_id[j]);
-				if(Integer.parseInt(answer_id[j]) == c_alist.get(i).getId()) {
-					caRequest.setId(Integer.parseInt(answer_id[j]));
-					caRequest.setAnswer(answer[i]);
-					CAService.update(caRequest);
-				} else {
-					caRequest.setAnswer(answer[i]);
-					CAService.create(caRequest);
-				}
+
+		for(int j=0; j <answer.length; j++) {
+//			System.out.println(answer_id[j]);
+			int a_id = Integer.parseInt(answer_id[j]);
+			if(a_id == 0) {
+				caRequest.setAnswer(answer[j]);
+				CAService.create(caRequest);
+			}else {
+				caRequest.setId(a_id);
+				caRequest.setAnswer(answer[j]);
+				CAService.update(caRequest);
 			}
 		}
 		return "redirect:/list";

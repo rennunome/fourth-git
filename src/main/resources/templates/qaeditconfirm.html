@@ -22,10 +22,11 @@
 	<label for="answer_id">答え：</label>
 	<div th:each="answer : ${answer}">
 	<input type= "text" name= "answer" class= "answer" th:value="${answer}">
+	</div>
 	<div th:each="answer_id : ${answer_id}">
 	<input type= "hidden" name = "answer_id" th:value ="${answer_id}">
 	</div>
-	</div> <br>
+	<br>
 	<input type="submit" value="更新">
 	</form>
 	</body>
