@@ -37,9 +37,8 @@ public class QAEditController {
 	}
 
 	@PostMapping("/qaeditconfirm")
-	public String displayEditConfirm(@ModelAttribute("questions_id") String questions_id, @ModelAttribute("question") String question, Model model, QuestionRequest questionRequest, CARequest caRequest, HttpServletRequest request) {
+	public String displayEditConfirm(@ModelAttribute("questions_id") String questions_id, @ModelAttribute("answer_id") String cas_id, @ModelAttribute("question") String question, Model model, QuestionRequest questionRequest, CARequest caRequest, HttpServletRequest request) {
 		String[] answer = request.getParameterValues("answer");
-		String[] cas_id = request.getParameterValues("answer_id");
 		model.addAttribute("question", question);
 		model.addAttribute("answer", answer);
 		model.addAttribute("questions_id", questions_id);

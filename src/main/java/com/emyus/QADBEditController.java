@@ -27,28 +27,32 @@ public class QADBEditController {
 	private CAService CAService;
 
 	@PostMapping("/qaeditconfirm2")
-	public String DBregister(@ModelAttribute("questions_id") int questions_id, @ModelAttribute("question") String question, Model model , QuestionRequest questionRequest, CARequest caRequest, HttpServletRequest request) {
+	public String DBregister(@ModelAttribute("questions_id") int questions_id, @ModelAttribute("answer_id") String answer_id, @ModelAttribute("question") String question, Model model , QuestionRequest questionRequest, CARequest caRequest, HttpServletRequest request) {
 		questionRequest.setId(questions_id);
 		questionService.update(questionRequest);
 		String[] answer = request.getParameterValues("answer");
-		String[] answer_id = request.getParameterValues("answer_id");
-		//取得しているidの数は2
-		System.out.println(answer_id.length);
-		int[] cas_id = new int[answer_id.length];
-		for(int i = 0; i < answer_id.length; i++) {
-			//それぞれint化してcorrect_answersのidにセット
-			int value = Integer.parseInt(answer_id[i]);
-	    	cas_id[i] = value;
-	    	caRequest.setId(cas_id[i]);
-		}
-		for (int i = 0; i < answer.length; i++) {
-			    if (answer[i] != null) {
-			        caRequest.setAnswer(answer[i]);
-			        CAService.update(caRequest);
-			    }
+		String[] answer_ids = request.getParameterValues("answer_id");
+		//答えの数だけループ
+		for(int i = 0; i <answer.length; i++) {
+			System.out.println(answer_ids[i]);
+			if (answer_ids[i] != null) {
+				System.out.println("A");
+				caRequest.setId(Integer.parseInt(answer_ids[i]));
+				if (answer[i] != null) {
+					System.out.println("B");
+					caRequest.setAnswer(answer[i]);
+					CAService.update(caRequest);
+			} else {
+					System.out.println("C");
+					caRequest.setAnswer(answer[i]);
+					CAService.create(caRequest);
+				}
 			}
+		}
 		return "redirect:/list";
 	}
+
+
 
 	@RequestMapping("/list")
 	public String displayList(Model model) {

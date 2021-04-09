@@ -20,10 +20,11 @@
 	<label for="question_id">問題：</label> <input type= "text" name= "question" class= "question" id= "question" th:value ="${question}">
 	 <input type= "hidden" name= "questions_id" th:value ="${questions_id}">
 	 <input type= "hidden" name= "answer_id" th:value ="${id}">
+	 <input type= "text" name= "answer_id" th:value ="${id}">
 	 <br>
 	<label for="answer_id">答え：</label>
 	<div id= "form_area">
-	 <input type= "text" name= "answer" id= "answer" class= "answer" th:value ="${answer}">
+	 <input type= "text" name= "answer" id= "answer" class= "answer" th:value ="${answer}"><br>
 	 </div>
 	<input type= "button" value= "フォーム追加" onclick="addForm()">
 	 <br>

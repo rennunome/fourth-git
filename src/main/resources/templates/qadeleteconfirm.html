@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Delete Confirmページ</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div align="right">
@@ -15,11 +16,11 @@
 	</div>
 	<h1>問題・答えの削除確認</h1>
 	<form th:action="@{/qadelete}" method="POST">
-	<label for="question_id">問題：</label> <input type= "text" name= "question" th:value ="${question}">
+	<label for="question_id">問題：</label> <input type= "text" name= "question" class= "question" th:value ="${question}">
 	 <input type= "hidden" name= "questions_id" th:value ="${questions_id}">
 	 <input type= "hidden" name= "answer_id" th:value ="${id}">
 	 <br>
-	<label for="answer_id">答え：</label> <input type= "text" name= "answer" th:value ="${answer}"> <br>
+	<label for="answer_id">答え：</label> <input type= "text" class= "answer" name= "answer" th:value ="${answer}"> <br>
 	<input type="submit" value="削除">
 	</form>
 	</body>

@@ -34,6 +34,8 @@
 					name="questions_id" th:value="${CorrectAnswer.getQuestionsId()}">
 				<input type="hidden"
 					name="id" th:value="${CorrectAnswer.getId()}">
+					<input type="text"
+					name="id" th:value="${CorrectAnswer.getId()}">
 			</form>
 		</th:block>
 		<form th:action="@{/qadeleteconfirm}" method="POST" th:object="${CorrectAnswer}">
