@@ -2,8 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Register Confirmページ</title>
+<title>QA Editページ</title>
 <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+<script th:src="@{js/addForm.js}"></script>
 </head>
 <body>
 <div align="right">
@@ -15,13 +16,22 @@
 	</form>
 	</div>
 	<h1>問題・答えの編集</h1>
-	<form th:action="@{/qaeditconfirm}" method="POST">
-	<label for="question_id">問題：</label> <input type= "text" name= "question" class= "question" th:value ="${question}">
+	<form id="qaForm" th:action="@{/qaeditconfirm}" method="POST">
+	<label for="question_id">問題：</label> <input type= "text" name= "question" class= "question" id= "question" th:value ="${question}">
 	 <input type= "hidden" name= "questions_id" th:value ="${questions_id}">
-	 <input type= "hidden" name= "answer_id" th:value ="${id}">
 	 <br>
-	<label for="answer_id">答え：</label> <input type= "text" name= "answer" class= "answer" th:value ="${answer}"> <br>
-	<input type="submit" value="確認">
+	<label for="answer_id">答え：</label>
+		<div id="form_area">
+			<div th:each="CorrectAnswer : ${calist}">
+				<input type="text" name="answer" id="answer" class="answer" th:value="${CorrectAnswer.answer}">
+				<input type= "hidden" name = "answer_id" th:value= "${CorrectAnswer.getId()}">
+ 				<br>
+ 				<br>
+			</div>
+		</div>
+		<input type= "button" value= "フォーム追加" onclick="addForm()">
+	 <br>
+	<button type="submit" id="qaButton">確認</button>
 	</form>
 	</body>
 </html>

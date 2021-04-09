@@ -23,7 +23,7 @@
 	</update>
 
 	<delete id="delete">
-		delete from correct_answers where id = #{id}
+		delete from correct_answers where questions_id = #{id}
 	</delete>
 
 	<select id= "findByQuestionId" resultType="com.emyus.ca.CorrectAnswer">

@@ -2,6 +2,8 @@ package com.emyus;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,11 +27,24 @@ public class QADBEditController {
 	private CAService CAService;
 
 	@PostMapping("/qaeditconfirm2")
-	public String DBregister(@ModelAttribute("questions_id") int questions_id, @ModelAttribute("answer_id") int cas_id, @ModelAttribute("question") String question, @ModelAttribute("answer") String answer, Model model , QuestionRequest questionRequest, CARequest caRequest) {
+	public String DBregister(@ModelAttribute("questions_id") int questions_id, @ModelAttribute("question") String question, Model model , QuestionRequest questionRequest, CARequest caRequest, HttpServletRequest request) {
 		questionRequest.setId(questions_id);
-		caRequest.setId(cas_id);
 		questionService.update(questionRequest);
-		CAService.update(caRequest);
+		String[] answer = request.getParameterValues("answer");
+		String[] answer_id = request.getParameterValues("answer_id");
+
+		for(int j=0; j <answer.length; j++) {
+//			System.out.println(answer_id[j]);
+			int a_id = Integer.parseInt(answer_id[j]);
+			if(a_id == 0) {
+				caRequest.setAnswer(answer[j]);
+				CAService.create(caRequest);
+			}else {
+				caRequest.setId(a_id);
+				caRequest.setAnswer(answer[j]);
+				CAService.update(caRequest);
+			}
+		}
 		return "redirect:/list";
 	}
 

@@ -1,5 +1,9 @@
 package com.emyus;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,17 +28,19 @@ public class QAEditController {
 
 	@PostMapping("/qaedit")
 	public String displayEdit(@ModelAttribute("questions_id") int questions_id, @ModelAttribute("id") int cas_id, Model model , QuestionRequest questionRequest, CARequest caRequest) {
+		questionRequest.setId(questions_id);
 		Question question = questionService.findById(questionRequest);
-		CorrectAnswer ca = CAService.findById(caRequest);
+		List<CorrectAnswer> calist = CAService.findByQuestionId(questionRequest.getId());
 		model.addAttribute("question", question.getQuestion());
-		model.addAttribute("answer", ca.getAnswer());
 		model.addAttribute("questions_id", questions_id);
-		model.addAttribute("id", cas_id);
+		model.addAttribute("calist",calist);
 		return "/qaedit";
 	}
 
 	@PostMapping("/qaeditconfirm")
-	public String displayEditConfirm(@ModelAttribute("questions_id") String questions_id, @ModelAttribute("answer_id") String cas_id, @ModelAttribute("question") String question, @ModelAttribute("answer") String answer, Model model, QuestionRequest questionRequest, CARequest caRequest) {
+	public String displayEditConfirm(@ModelAttribute("questions_id") String questions_id, @ModelAttribute("question") String question, Model model, QuestionRequest questionRequest, CARequest caRequest, HttpServletRequest request) {
+		String[] answer = request.getParameterValues("answer");
+		String[] cas_id = request.getParameterValues("answer_id");
 		model.addAttribute("question", question);
 		model.addAttribute("answer", answer);
 		model.addAttribute("questions_id", questions_id);

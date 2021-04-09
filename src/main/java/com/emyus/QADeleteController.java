@@ -27,6 +27,7 @@ public class QADeleteController {
 
 	@PostMapping("/qadeleteconfirm")
 	public String deleteconfirm(@ModelAttribute("questions_id") int questions_id, @ModelAttribute("id") int cas_id, Model model , QuestionRequest questionRequest, CARequest caRequest) {
+		questionRequest.setId(questions_id);
 		Question question = questionService.findById(questionRequest);
 		CorrectAnswer ca = CAService.findById(caRequest);
 		model.addAttribute("question", question.getQuestion());
