@@ -18,13 +18,13 @@
 	<form th:action="@{/qaeditconfirm2}" method="POST">
 	<label for="question_id">問題：</label> <input type= "text" name= "question" class= "question" th:value ="${question}">
 	<input type= "hidden" name = "questions_id" th:value ="${questions_id}">
-	<input type= "hidden" name = "answer_id" th:value ="${answer_id}">
 	<br>
-	<input type= "text" name = "answer_id" th:value ="${answer_id}">
 	<label for="answer_id">答え：</label>
 	<div th:each="answer : ${answer}">
 	<input type= "text" name= "answer" class= "answer" th:value="${answer}">
-	<!-- <input type= "hidden" name = "answer_id" th:value ="${answer_id}"> -->
+	<div th:each="answer_id : ${answer_id}">
+	<input type= "hidden" name = "answer_id" th:value ="${answer_id}">
+	</div>
 	</div> <br>
 	<input type="submit" value="更新">
 	</form>

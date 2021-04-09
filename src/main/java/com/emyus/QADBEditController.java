@@ -27,23 +27,22 @@ public class QADBEditController {
 	private CAService CAService;
 
 	@PostMapping("/qaeditconfirm2")
-	public String DBregister(@ModelAttribute("questions_id") int questions_id, @ModelAttribute("answer_id") String answer_id, @ModelAttribute("question") String question, Model model , QuestionRequest questionRequest, CARequest caRequest, HttpServletRequest request) {
+	public String DBregister(@ModelAttribute("questions_id") int questions_id, @ModelAttribute("question") String question, Model model , QuestionRequest questionRequest, CARequest caRequest, HttpServletRequest request) {
 		questionRequest.setId(questions_id);
 		questionService.update(questionRequest);
 		String[] answer = request.getParameterValues("answer");
-		String[] answer_ids = request.getParameterValues("answer_id");
-		//答えの数だけループ
-		for(int i = 0; i <answer.length; i++) {
-			System.out.println(answer_ids[i]);
-			if (answer_ids[i] != null) {
-				System.out.println("A");
-				caRequest.setId(Integer.parseInt(answer_ids[i]));
-				if (answer[i] != null) {
-					System.out.println("B");
+		String[] answer_id = request.getParameterValues("answer_id");
+		System.out.println(answer.length);
+		List<CorrectAnswer> c_alist = CAService.findByQuestionId(questions_id);
+		System.out.println(c_alist.size());
+		for(int i = 0; i < c_alist.size(); i++) {
+			for(int j=0; j <answer_id.length; j++) {
+				System.out.println("Answer_id =" + answer_id[j]);
+				if(Integer.parseInt(answer_id[j]) == c_alist.get(i).getId()) {
+					caRequest.setId(Integer.parseInt(answer_id[j]));
 					caRequest.setAnswer(answer[i]);
 					CAService.update(caRequest);
-			} else {
-					System.out.println("C");
+				} else {
 					caRequest.setAnswer(answer[i]);
 					CAService.create(caRequest);
 				}
@@ -51,8 +50,6 @@ public class QADBEditController {
 		}
 		return "redirect:/list";
 	}
-
-
 
 	@RequestMapping("/list")
 	public String displayList(Model model) {

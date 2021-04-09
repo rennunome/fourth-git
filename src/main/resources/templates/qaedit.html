@@ -19,14 +19,17 @@
 	<form id="qaForm" th:action="@{/qaeditconfirm}" method="POST">
 	<label for="question_id">問題：</label> <input type= "text" name= "question" class= "question" id= "question" th:value ="${question}">
 	 <input type= "hidden" name= "questions_id" th:value ="${questions_id}">
-	 <input type= "hidden" name= "answer_id" th:value ="${id}">
 	 <input type= "text" name= "answer_id" th:value ="${id}">
 	 <br>
 	<label for="answer_id">答え：</label>
-	<div id= "form_area">
-	 <input type= "text" name= "answer" id= "answer" class= "answer" th:value ="${answer}"><br>
-	 </div>
-	<input type= "button" value= "フォーム追加" onclick="addForm()">
+		<div id="form_area">
+			<div th:each="CorrectAnswer : ${calist}">
+				<input type="text" name="answer" id="answer" class="answer" th:value="${CorrectAnswer.answer}">
+				<input type= "text" name = "answer_id" th:value= "${CorrectAnswer.getId()}">
+ 				<br>
+			</div>
+		</div>
+		<input type= "button" value= "フォーム追加" onclick="addForm()">
 	 <br>
 	<button type="submit" id="qaButton">確認</button>
 	</form>
