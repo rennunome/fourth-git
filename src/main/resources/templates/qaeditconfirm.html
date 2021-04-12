@@ -29,5 +29,16 @@
 	<br>
 	<input type="submit" value="更新">
 	</form>
+	<div align="right">
+	<form th:action="@{/qaedit}" method="POST">
+	<div th:each="CorrectAnswer : ${calist}">
+	<input type="hidden"
+					name="questions_id" th:value="${CorrectAnswer.getQuestionsId()}">
+					<input type="hidden"
+					name="id" th:value="${CorrectAnswer.getId()}">
+					</div>
+		<input type="submit" value="戻る">
+	</form>
+	</div>
 	</body>
 </html>
