@@ -14,6 +14,12 @@ public class RootController {
 	@Autowired
 	private HttpSession session;
 
+//	@Autowired
+//	private QuestionService questionService;
+//
+//	@Autowired
+//	private CAService CAService;
+
 	@GetMapping("/")
 	public String root(Model model) {
 		byte adflag = (byte)session.getAttribute("admin_flag");
@@ -30,6 +36,10 @@ public class RootController {
 
 	@GetMapping("/login")
 	public String login() {
+//		List<Question> questionlist = questionService.findAll();
+//		List<CorrectAnswer> calist = CAService.findAll();
+//		model.addAttribute("questionlist", questionlist);
+//		model.addAttribute("calist", calist);
 		return "login";
 	}
 

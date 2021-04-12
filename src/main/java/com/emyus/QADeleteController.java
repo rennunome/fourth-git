@@ -29,9 +29,9 @@ public class QADeleteController {
 	public String deleteconfirm(@ModelAttribute("questions_id") int questions_id, @ModelAttribute("id") int cas_id, Model model , QuestionRequest questionRequest, CARequest caRequest) {
 		questionRequest.setId(questions_id);
 		Question question = questionService.findById(questionRequest);
-		CorrectAnswer ca = CAService.findById(caRequest);
+		List<CorrectAnswer> calist = CAService.findByQuestionId(questionRequest.getId());
 		model.addAttribute("question", question.getQuestion());
-		model.addAttribute("answer", ca.getAnswer());
+		model.addAttribute("calist", calist);
 		model.addAttribute("questions_id", questions_id);
 		model.addAttribute("id", cas_id);
 		return "/qadeleteconfirm";

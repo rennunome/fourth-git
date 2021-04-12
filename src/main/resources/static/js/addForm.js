@@ -37,4 +37,3 @@ function deleteBtn(target) {
   parent.removeChild(tgt_id);
 }
 
-//document.qaForm.submit();

@@ -34,7 +34,6 @@ public class QADBEditController {
 		String[] answer_id = request.getParameterValues("answer_id");
 
 		for(int j=0; j <answer.length; j++) {
-//			System.out.println(answer_id[j]);
 			int a_id = Integer.parseInt(answer_id[j]);
 			if(a_id == 0) {
 				caRequest.setAnswer(answer[j]);

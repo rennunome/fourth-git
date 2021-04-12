@@ -25,13 +25,16 @@
 			<div th:each="CorrectAnswer : ${calist}">
 				<input type="text" name="answer" id="answer" class="answer" th:value="${CorrectAnswer.answer}">
 				<input type= "hidden" name = "answer_id" th:value= "${CorrectAnswer.getId()}">
- 				<br>
- 				<br>
 			</div>
 		</div>
 		<input type= "button" value= "フォーム追加" onclick="addForm()">
 	 <br>
 	<button type="submit" id="qaButton">確認</button>
 	</form>
+	<div align="right">
+	<form th:action="@{/list}" method="POST">
+		<input type="submit" value="戻る">
+	</form>
+	</div>
 	</body>
 </html>
