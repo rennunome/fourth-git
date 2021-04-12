@@ -13,16 +13,16 @@
 		<p>下記よりメニューを選択してください</p>
 	</div>
 	<th:block th:if="${admin_flag == 1}">
-	<!-- <th:block th:if="${questionlist.isEmpty() || calist.isEmpty()}">
+	<th:block th:if="${(questionlist != null && questionlist.isEmpty()) || (calist != null && calist.isEmpty())}">
 	<form th:action="@{/qaregister}" method="POST">
 	<input type="submit" value="問題を登録・編集する">
 	</form>
 	</th:block>
-	<th:block th:unless="${questionlist.isEmpty() || calist.isEmpty()}"> -->
+	<th:block th:unless="${(questionlist != null && questionlist.isEmpty()) || (calist != null && calist.isEmpty())}">
 	<form th:action="@{/list}" method="POST">
 	<input type="submit" value="問題を登録・編集する">
 	</form>
-	<!-- </th:block> -->
+	</th:block>
 	<br>
 	<form th:action="@{/test}" method="POST">
 	<input type="submit" value="テストをする">

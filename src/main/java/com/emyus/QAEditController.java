@@ -45,6 +45,9 @@ public class QAEditController {
 		model.addAttribute("answer", answer);
 		model.addAttribute("questions_id", questions_id);
 		model.addAttribute("answer_id", cas_id);
+		questionRequest.setId(Integer.parseInt(questions_id));
+		List<CorrectAnswer> calist = CAService.findByQuestionId(questionRequest.getId());
+		model.addAttribute("calist",calist);
 		return "qaeditconfirm";
 
 	}
